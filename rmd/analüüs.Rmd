@@ -1,0 +1,36 @@
+\onecolumn
+
+# Analüüs
+
+Lasen joonestada pretsessiooninurkkiiruse sõltuvuse graafiku rootori osakeste nurkkiirusest (joonis \@ref(fig:angular-speed) leheküljel `r render_pageref(reference = "fig:angular-speed")`).
+
+```{r label = "angular-speed", echo = FALSE, fig.cap = "Pretsessiooninurkkiiruse sõltuvus rootori osakeste nurkkiirusest."}
+librarian::shelf(c(
+  "ggplot2",
+  "latex2exp"
+))
+
+color_x <- "#008000"
+color_y <- "#ff6600"                                                                                                                         
+
+margin_of_omega <- data_frame_of_precession$`$\\frac{\\Delta(\\omega)}{\\unit{\\per\\s}}$` / 2         # 8
+
+ggplot(
+  data <- data_frame_of_precession,
+  mapping <- aes(x = `$\\frac{\\omega}{\\unit{\\per\\s}}$`, y = `$\\frac{\\omega_\\text{P}}{\\unit{\\per\\s}}$`)
+) +
+  geom_point(shape = 23, size = 1) +
+  labs(x = TeX("$\\frac{\\omega}{\\frac{1}{s}}$"), y = TeX("$\\frac{\\omega_P}{\\frac{1}{s}}$")) +
+  theme(
+    axis.title.x = element_text(colour = color_x),
+    axis.text.x = element_text(colour = color_x),
+    axis.ticks.x = element_line(colour = color_x),
+    axis.title.y = element_text(colour = color_y),
+    axis.text.y = element_text(colour = color_y),
+    axis.ticks.y = element_line(colour = color_y)
+  ) +
+  geom_errorbarh(aes(xmin = `$\\frac{\\omega}{\\unit{\\per\\s}}$` - margin_of_omega, xmax = `$\\frac{\\omega}{\\unit{\\per\\s}}$` + margin_of_omega, y = `$\\frac{\\omega_\\text{P}}{\\unit{\\per\\s}}$`), color = color_x)
+
+```
+    
+\twocolumn

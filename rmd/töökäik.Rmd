@@ -1,0 +1,115 @@
+\onecolumn
+
+# Töö käik
+
+1. Astusin pöördalusele hoides ratast käes.
+
+2. Pöörasin ratast teljega suundadesse, mida iganes soovisin.
+
+3. Kerisin nööri ümber güroskoobi telje.
+
+4. Hoidsin tugevasti kardaanist, kui keegi muu tõmbas tugevasti nöörist.
+
+5. Kallutasin ratast ühes suunas. Alus, millel seisin, hakkas pöörlema vastassuunas võrreldes ratta pöörlemissuunaga. Kuna siis, kui mu pöörlemisalus ei pöörelnud, hoidsin ratast, mis keerles ümber horisontaalse telje, oli impulsimomendil vaid rõhtne komponent ja ratast kallutades tekkis püstine komponent, oli vaja seda impulsimomendi teljesihiliseks samaksjäämiseks tasakaalustada samasihilise, kuid vastassuunalise impulsimomendiga, hakkas mu pöörlemisalus pöörlema ratta suhtes vastassuunaliselt.[@wheel]
+
+6. Kallutasin ratast teises suunas. Alus, millel seisin, hakkas pöörlema vastassuunas võrreldes ratta pöörlemissuunaga. Põhjus on sama mis esitatud sammul \num{5}.
+
+7.  Tasakaalustasin elektrimootori abil käitatava suure inertsimomendiga rootori tasakaalustatava raskuse abil, nii et güroskoobi telg jäi rõhtsaks. Selleks keerasin lahti tasakaalustava raskuse kruvi ja nihutasin raskust mööda varrast kohta, kus tasakaal tekkis. Fikseerisin raskuse alguskoha.
+    
+    ```{r label = "x_0"}
+    x_0 <- 7.2e-2
+    
+    ```
+    
+    Raskuse alguskoht oli \qty{`r as.character(x_0)`}{\m}.
+    
+8. Ühendasin seadme toitepistiku elektrivõrku.
+
+9. Lülitasin seadme sisse nupule *võrk* vajutamisega.
+
+10. Güroskoobi pöörlemapanemiseks pöörasin ettevaatlikult nuppu *kiiruse reg.*.
+
+11. Reguleerisin mootori pöörlemiskiiruse umbes \num{6000} pöördele minutis ja jätsin selle muutumatuks.
+
+12. Tutvusin pöörleva güroskoobi omadustega. Birgit Avistu lõi joonlauaga nõrgalt vastu güroskoobi teljesihilist varba (joonis \@ref(fig:hitting-gyroscope) leheküljel `r render_pageref(reference = "fig:hitting-gyroscope")`). Güroskoob oma asendit ei muutnud.
+
+    ```{r label = "hitting-gyroscope", fig.cap = "Birgit toksas joonlauaga güroskoobi teljesihilist varba. Taamal on juhendaja."}
+    include_external_graphics(path = "rmd/birgit-toksamas-güroskoopi.jpg")
+    
+    ```
+    
+13. Vajutasin güroskoobi teljesihilisele varbale ülalt alla, mille tõttu rootor liikus vajutamiskoha poolt vaadatuna paremale. Vajutasin güroskoobi teljesihilisele varbale alt üles, mille tõttu rootor liikus vajutamiskoha poolt vaadatuna vasemale. Vajutasin güroskoobi teljesihilisele varbale selle vaba osa poolt vaadatuna paremalt vasakule, mille tõttu rootor liikus allapoole. Vajutasin güroskoobi teljesihilisele varbale selle vaba osa poolt vaadatuna vasakult paremale, mille tõttu rootor liikus ülespoole. Jõumoment, mis paneb güroskoobi rootori liikuma vasemale, paremale, üles või alla, on risti teljesihilise varba telje raadiuse ja rootorile mõjuva jõuga kruvi- ehk parema käe reegli järgi. Raadius on suunatud väljastpoolt sissepoole, sest see on kesktõmbejõud, mida rakendatakse, et rootor küljest ära ei lendaks. Kui vajutada teljesihilisele varbale ülalt alla, siis see tähendab, et tõstetakse rootorit, mistõttu jõud, millega rootorit liigutatakse, mõjub alt üles. Kui kasutada pöialt raadiusevektorina ja pikka peetrit rootorit tõstva jõu vektorina, on kahe eelnimetatud sõrmega risti olev nimetissõrm suunatud jõumomendi vektoriks ja seetõttu liigubki rootor just sellesse suunda. Eksperiment kinnitas seega güroskoobi teooriat.
+
+14. Nihutasin tasakaalustava raskuse algasukohast $x_0$ varva välisosa lähedale. Fikseerisin selle asendi.
+    
+    ```{r label = "x_1"}
+    x_1 <- 13.6e-2
+    
+    ```
+    
+    Tasakaalustava raskuse uus asukoht oli \qty{`r as.character(x_1)`}{\m}.
+    
+15. Lasen arvutada tekkinud jõuõla pikkuse.
+
+    ```{r label = "delta_x"}
+    delta_x <- x_1 - x_0
+    
+    ```
+    
+    Tekkinud jõuõlg oli pikkusega \qty{`r as.character(delta_x)`}{\m}.
+    
+16. Suurendasin güroskoobi pöörete arvu ligilähedaseks \num{10000} pöördele minutis. Pöörasin kiirusregulaatori nullnäidule. Tabasin hetke, mil pöörete arv minutis oli langenud paarisaja minutipöörde kaugusele üle järgmise täistuhande ja vajutasin nupule *loendur*. Kui pöörete arv oli langenud paarsada pööret minutis  alla nimetatud täistuhande, vajutasin nupule *stopp*, kui just ei toimunud automaatset loendamise seiskumist, ja märkisin tabelisse \@ref(tab:precession) leheküljel `r render_pageref(reference = "tab:precession")` nii kummagi pöörete arvu keskmise kui vahe. Samuti märkisin üles nurga ja ajavahemiku. Toimisin nõndamoodi pöördeid, nurki ja ajavahemikke üles märkides iga täistuhande minutipöörde puhul kuni kolme tuhande pöördeni minutis.
+
+17. Kaalusin oma nutitelefoni.
+
+    ```{r}
+    m_nutikas <- 2.187e-1
+    
+    ```
+    
+    Nutitelefon kaalus \qty{`r as.character(m_nutikas)`}{\kg}.
+    
+18. Lasen arvutada tabelis \@ref(tab:precession) leheküljel `r render_pageref(reference = "tab:precession")` nurkkiiruse, selle muudu (\@ref(eq:angular-velocity) leheküljel `r render_pageref(reference = "eq:angular-velocity")`), pretsessiooninurga muutuse ja pretsessiooninurga[@ling_2018_university(lk 552)] read.
+
+```{r label = "precession"}
+N_per_min <- c(8900, 7900, 7000, 6000, 5000, 4000, 3000)
+N <- N_per_min / 60
+omega <- N * 2 * pi
+delta_N_per_min <- c(600, 600, 400, 600, 600, 500, 600)
+delta_N <- delta_N_per_min / 60
+delta_omega <- delta_N * 2 * pi
+delta_alpha_in_degrees <- c(20, 30, 50, 40, 70, 40, 30)
+delta_alpha <- delta_alpha_in_degrees * pi / 180
+delta_t <- c(8.8, 12.6, 17.2, 12.9, 21, 18, 28.9)
+omega_P <- delta_alpha / delta_t
+
+data_frame_of_precession <- data.frame(
+  N,
+  omega,
+  delta_N,
+  delta_omega,
+  delta_alpha_in_degrees,
+  delta_alpha,
+  delta_t,
+  omega_P
+)
+
+colnames(data_frame_of_precession) <- c(
+  "$\\frac{N}{\\unit{\\per\\s}}$",
+  "$\\frac{\\omega}{\\unit{\\per\\s}}$",
+  "$\\frac{\\Delta(N)}{\\unit{\\per\\s}}$",
+  "$\\frac{\\Delta(\\omega)}{\\unit{\\per\\s}}$",
+  "$\\frac{\\Delta(\\alpha)}{\\unit{\\degree}}$",
+  "$\\Delta(\\alpha)$",
+  "$\\frac{\\Delta(t)}{\\unit{\\s}}$",
+  "$\\frac{\\omega_\\text{P}}{\\unit{\\per\\s}}$"
+)
+
+print_table(
+  table = data_frame_of_precession,
+  caption = "Pretsessiooni nurkkiiruse sõltuvus güroskoobi nurkkiirusest."
+)
+
+```
+
+\twocolumn
