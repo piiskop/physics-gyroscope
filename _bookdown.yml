@@ -5,6 +5,7 @@ rmd_files: [
   "index.Rmd",
   "rmd/töövahendid.Rmd",
   "rmd/baasreeglistik.Rmd",
+  "rmd/teooria.Rmd",
   "rmd/töökäik.Rmd",
   "rmd/analüüs.Rmd",
   "references.Rmd"

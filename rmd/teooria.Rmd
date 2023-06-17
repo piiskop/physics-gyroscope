@@ -1,0 +1,52 @@
+\onecolumn
+
+# Teooria
+
+Güroskoop on kahe teljega seadeldis, mis võimaldab ühe telje otsa kinnitatud rootoril pöörelda ümber mõlema telje. Güroskoobi rõhtne telg on kinnitatud püstise telje külge, nii et rõhtne telg saaks liikuda üles-alla nagu kang. Rõhtsa telje ühes otsas on rootor ja püstisest teljest teisel pool on tasakaalustaja. Tasakaaluasendis on rõhtne telg veepinna suhtes rõhtne. Kui tasakaalustaja nihutada tasakaaluasendi positsioonist püstisele teljele lähemale või sellest kaugemale, viiakse güroskoop tasakaalust välja. Güroskoobi rõhtsa telje asendid on esitatud joonisel \@ref(fig:states-of-gyroscope) leheküljel `r render_pageref(reference = "fig:states-of-gyroscope")`.
+
+```{r label = "states-of-gyroscope", echo = FALSE, fig.cap = "Güroskoobi kolm asendit: Kõige ülemises asendis on güroskoop tasakaalus ja selles asendis rootoripoolne jõumoment on võrdne tasakaalustajapoolse jõumomendiga. Keskmises asendis on tasakaalustaja nihutatud püstisest teljest kaugemale, mistõttu on selle poole jõumoment suurem rootoripoolsest jõumomendist ja tekkinud on güroskoobi enda jõumoment. Tasakaalustaja nihutamine põhjustab alumise asendi.", echo = FALSE}
+include_external_graphics("rmd/güroskoobi-asendid.svg")
+
+```
+
+Joonisel \@ref(fig:rotor-of-gyroscope-from-top) leheküljel `r render_pageref(reference = "fig:rotor-of-gyroscope-from-top")` on alumises osas esitatud skeem güroskoobi rootoriosa poolt vaadatuna güroskoobi püstise teljega paralleelselt. Ülemises osas on güroskoop külgvaates nagu joonisel \@ref(fig:states-of-gyroscope) leheküljel `r render_pageref(reference = "fig:states-of-gyroscope")`. Näidatud on ainult püstine telg, rootor, vajalikud nurgad ja vektorid. Güroskoobi tasakaalust väljaviimise tulemusena tekib güroskoobi jõumoment, mis nihutab rootorit ümber püstise telje. Nurk, mille võrra rootor ümber püstise telje liigub, on tähistatud kui \gamma. Selle nurga muut ajas on pretsessiooni nurkkiirus, mida saab väljendada üldise nurkkiiruse valemi \@ref(eq:angular-velocity) leheküljel `r render_pageref(reference = "eq:angular-velocity")` järgi valemina \@ref(eq:precession-angular-speed) leheküljel `r render_pageref(reference = "eq:precession-angular-speed")`.
+
+```{r label = "rotor-of-gyroscope-from-top", echo = FALSE, fig.cap = "Güroskoop vaadatuna rootori poolelt.", echo = FALSE}
+include_external_graphics("rmd/güroskoobi-rootor-pealtvaates.svg")
+
+```
+
+```{=tex}
+\begin{align}
+\omega = \frac{\mathrm{d}(\gamma)}{\mathrm{d}(t)}.
+(\#eq:precession-angular-speed)
+\end{align}
+
+```
+
+Vastavalt nurga põhivalemile \@ref(eq:plane-angle) leheküljel `r render_pageref(reference = "eq:plane-angle")` sõltub pretsessiooninurk impulsimomendi muudust ja see seos on esitatud valemina \@ref(eq:precession-angle-by-angular-moment) leheküljel `r render_pageref(reference = "eq:precession-angle-by-angular-moment")`.
+
+```{=tex}
+\begin{align}
+\gamma = \frac{\mathrm{\vec{L}}}{\vec{L} \cdot \mathrm{sin}(\theta)}.
+(\#eq:precession-angle-by-angular-moment)
+\end{align}
+
+```
+
+Joonisel \@ref(fig:change-of-angular-momentum-of-gyroscope) leheküljel `r render_pageref(reference = "fig:change-of-angular-momentum-of-gyroscope")` on esitatud skeem güroskoobi impulsimomendi muutumise kohta ülalt vaadatuna. Kuna pretsessiooni nurkkiirus on oluliselt väiksem kui rootori osakeste nurkkiirus, siis impulsimomendi suurus oluliselt ei muutu, küll aga muutub selle suund, kui güroskoobi rootor pöörleb ja güroskoop pole tasakaalus. Sellest nähtusest lähtuvalt avaldan nurga impulsimomendi kahe hetke vahel vastavalt tasandinurga põhivalemile \@ref(eq:plane-angle) leheküljel `r render_pageref(reference = "eq:plane-angle")` ning tulemuseks on valem \@ref(eq:angular-moment-angle) leheküljel `r render_pageref(reference = "eq:angular-moment-angle")`.
+
+```{r label = "change-of-angular-momentum-of-gyroscope", echo = FALSE, fig.cap = "Güroskoop vaadatuna ülalt. Esitatud on ainult olulised detailid.", echo = FALSE}
+include_external_graphics("rmd/güroskoobi-impulsimoment.svg")
+
+```
+
+```{=tex}
+\begin{align}
+\theta = \frac{\mathrm{d}(\vec{L})}{\vec{L}}.
+(\#eq:angular-moment-angle)
+\end{align}
+
+```
+
+\twocolumn

@@ -505,7 +505,7 @@ Inertsimomendi saab avaldada impulsimomendi ja nurkkiiruse kaudu. Selleks asenda
 
 ```{=tex}
 \begin{align}
-I = \sum{\frac{\vec{p}}{\vec{v}} \times r^2} = \sum{\frac{\vec{p}}{\vec{w \times r}} \times r^2} \\ = \sum{\frac{\vec{\frac{\vec{L}}{\vec{r}}}}{\vec{w \times r}} \times r^2} = \frac{\sum{\vec{L}}}{\vec{w}}.
+I = \sum{\frac{\vec{p}}{\vec{v}} \times r^2} = \sum{\frac{\vec{p}}{\vec{\omega \times r}} \times r^2} \\ = \sum{\frac{\vec{\frac{\vec{L}}{\vec{r}}}}{\vec{\omega \times r}} \times r^2} = \frac{\sum{\vec{L}}}{\vec{\omega}}.
 (\#eq:moment-of-inertia-by-angular-moment)
 \end{align}
 
@@ -570,6 +570,16 @@ Et väljendada jõumoment inertsimomendi ja nurkkiirenduse kaudu, asendan jõumo
 m \cdot \vec{r \cdot \vec{\alpha}} \times \vec{r} = m \cdot r \cdot \vec{r} \times \vec{\alpha} =\\
 m \cdot \vec{r^2} \times \vec{\alpha} = \vec{I} \times \vec{\alpha}.
 (\#eq:torque-by-moment-of-inertia)
+\end{align}
+
+```
+
+Et väljendada jõumoment impulsimomendi kaudu, asendan jõumomendi avaldamise valemisse inertsimomendi ja nurkkiirenduse kaudu \@ref(eq:torque-by-moment-of-inertia) leheküljel `r render_pageref(reference = "eq:torque-by-moment-of-inertia")` esmalt inertsimomendi viimase avaldaldamise valemist impulsimomendi ja nurkkiiruse kaudu \@ref(eq:moment-of-inertia-by-angular-moment) leheküljel `r render_pageref(reference = "eq:moment-of-inertia-by-angular-moment")` ja seejärel nurkkiirenduse viimase põhivalemist \@ref(eq:angular-acceleration) leheküljel `r render_pageref(reference = "eq:angular-acceleration")`, et saada avaldis \@ref(eq:torque-by-angular-velocity) leheküljel `r render_pageref(reference = "eq:torque-by-angular-velocity")`.
+
+```{=tex}
+\begin{align}
+\vec{T} = \vec{\frac{\mathrm{d({\vec{L}})}}{\vec{\omega}}} \times \vec{\frac{\mathrm{d}(\omega)}{\mathrm{d}(t)}} = \frac{\mathrm{d}({\vec{L}})}{\mathrm{d}(t)}.
+(\#eq:torque-by-angular-velocity)
 \end{align}
 
 ```
