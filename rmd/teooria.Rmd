@@ -9,6 +9,33 @@ include_external_graphics("rmd/güroskoobi-asendid.svg")
 
 ```
 
+Joonisel \@ref(fig:change-of-angular-momentum-of-gyroscope) leheküljel `r render_pageref(reference = "fig:change-of-angular-momentum-of-gyroscope")` on esitatud skeem güroskoobi impulsimomendi muutumise kohta ülalt vaadatuna. Kuna pretsessiooni nurkkiirus on oluliselt väiksem kui rootori osakeste nurkkiirus, siis impulsimomendi suurus oluliselt ei muutu, küll aga muutub selle suund, kui güroskoobi rootor pöörleb ja güroskoop pole tasakaalus. Sellest nähtusest lähtuvalt avaldan nurga impulsimomendi kahe hetke vahel vastavalt tasandinurga põhivalemile \@ref(eq:plane-angle) leheküljel `r render_pageref(reference = "eq:plane-angle")` ning tulemuseks on valem \@ref(eq:angular-moment-angle) leheküljel `r render_pageref(reference = "eq:angular-moment-angle")`. Pretsessiooninurka saame niimoodi väljendada, sest vastava raadiuse magnituud impulsimomendi magnituudi näol ei muutu güroskoobi tasakaaluasendist väljaviimise tõttu - vahemaa propelleri ja telje kinnituskoha vahel jääb samaks mõlemas juhus.
+
+```{r label = "change-of-angular-momentum-of-gyroscope", echo = FALSE, fig.cap = "Güroskoop vaadatuna ülalt. Esitatud on ainult olulised detailid.", echo = FALSE}
+include_external_graphics("rmd/güroskoobi-impulsimoment.svg")
+
+```
+
+```{=tex}
+\begin{align}
+\theta = \frac{\mathrm{d}(\vec{L})}{\vec{L}}.
+(\#eq:angular-moment-angle)
+\end{align}
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
 Joonisel \@ref(fig:rotor-of-gyroscope-from-top) leheküljel `r render_pageref(reference = "fig:rotor-of-gyroscope-from-top")` on alumises osas esitatud skeem güroskoobi rootoriosa poolt vaadatuna güroskoobi püstise teljega paralleelselt. Ülemises osas on güroskoop külgvaates nagu joonisel \@ref(fig:states-of-gyroscope) leheküljel `r render_pageref(reference = "fig:states-of-gyroscope")`. Näidatud on ainult püstine telg, rootor, vajalikud nurgad ja vektorid. Güroskoobi tasakaalust väljaviimise tulemusena tekib güroskoobi jõumoment, mis nihutab rootorit ümber püstise telje. Nurk, mille võrra rootor ümber püstise telje liigub, on tähistatud kui \gamma. Selle nurga muut ajas on pretsessiooni nurkkiirus, mida saab väljendada üldise nurkkiiruse valemi \@ref(eq:angular-velocity) leheküljel `r render_pageref(reference = "eq:angular-velocity")` järgi valemina \@ref(eq:precession-angular-speed) leheküljel `r render_pageref(reference = "eq:precession-angular-speed")`.
 
 ```{r label = "rotor-of-gyroscope-from-top", echo = FALSE, fig.cap = "Güroskoop vaadatuna rootori poolelt.", echo = FALSE}
@@ -30,21 +57,6 @@ Vastavalt nurga põhivalemile \@ref(eq:plane-angle) leheküljel `r render_pagere
 \begin{align}
 \gamma = \frac{\mathrm{\vec{L}}}{\vec{L} \cdot \mathrm{sin}(\theta)}.
 (\#eq:precession-angle-by-angular-moment)
-\end{align}
-
-```
-
-Joonisel \@ref(fig:change-of-angular-momentum-of-gyroscope) leheküljel `r render_pageref(reference = "fig:change-of-angular-momentum-of-gyroscope")` on esitatud skeem güroskoobi impulsimomendi muutumise kohta ülalt vaadatuna. Kuna pretsessiooni nurkkiirus on oluliselt väiksem kui rootori osakeste nurkkiirus, siis impulsimomendi suurus oluliselt ei muutu, küll aga muutub selle suund, kui güroskoobi rootor pöörleb ja güroskoop pole tasakaalus. Sellest nähtusest lähtuvalt avaldan nurga impulsimomendi kahe hetke vahel vastavalt tasandinurga põhivalemile \@ref(eq:plane-angle) leheküljel `r render_pageref(reference = "eq:plane-angle")` ning tulemuseks on valem \@ref(eq:angular-moment-angle) leheküljel `r render_pageref(reference = "eq:angular-moment-angle")`.
-
-```{r label = "change-of-angular-momentum-of-gyroscope", echo = FALSE, fig.cap = "Güroskoop vaadatuna ülalt. Esitatud on ainult olulised detailid.", echo = FALSE}
-include_external_graphics("rmd/güroskoobi-impulsimoment.svg")
-
-```
-
-```{=tex}
-\begin{align}
-\theta = \frac{\mathrm{d}(\vec{L})}{\vec{L}}.
-(\#eq:angular-moment-angle)
 \end{align}
 
 ```

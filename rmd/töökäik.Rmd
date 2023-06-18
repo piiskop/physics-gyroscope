@@ -62,7 +62,7 @@
 
 17. Kaalusin oma nutitelefoni.
 
-    ```{r}
+    ```{r label = "m_nutikas"}
     m_nutikas <- 2.187e-1
     
     ```
