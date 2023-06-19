@@ -29,8 +29,11 @@ ggplot(
     axis.text.y = element_text(colour = color_y),
     axis.ticks.y = element_line(colour = color_y)
   ) +
-  geom_errorbarh(aes(xmin = `$\\frac{\\omega}{\\unit{\\per\\s}}$` - margin_of_omega, xmax = `$\\frac{\\omega}{\\unit{\\per\\s}}$` + margin_of_omega, y = `$\\frac{\\omega_\\text{P}}{\\unit{\\per\\s}}$`), color = color_x)
+  geom_errorbarh(aes(xmin = `$\\frac{\\omega}{\\unit{\\per\\s}}$` - margin_of_omega, xmax = `$\\frac{\\omega}{\\unit{\\per\\s}}$` + margin_of_omega, y = `$\\frac{\\omega_\\text{P}}{\\unit{\\per\\s}}$`), color = color_x) +
+  geom_smooth()
 
 ```
     
+Teooria seosega \@ref(eq:angular-velocity-of-precession-by-angular-moment) leheküljel `r render_pageref(reference = "eq:angular-velocity-of-precession-by-angular-moment")` ennustab pöördvõrdelist sõltuvust.
+
 \twocolumn

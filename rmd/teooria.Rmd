@@ -2,63 +2,59 @@
 
 # Teooria
 
-Güroskoop on kahe teljega seadeldis, mis võimaldab ühe telje otsa kinnitatud rootoril pöörelda ümber mõlema telje. Güroskoobi rõhtne telg on kinnitatud püstise telje külge, nii et rõhtne telg saaks liikuda üles-alla nagu kang. Rõhtsa telje ühes otsas on rootor ja püstisest teljest teisel pool on tasakaalustaja. Tasakaaluasendis on rõhtne telg veepinna suhtes rõhtne. Kui tasakaalustaja nihutada tasakaaluasendi positsioonist püstisele teljele lähemale või sellest kaugemale, viiakse güroskoop tasakaalust välja. Güroskoobi rõhtsa telje asendid on esitatud joonisel \@ref(fig:states-of-gyroscope) leheküljel `r render_pageref(reference = "fig:states-of-gyroscope")`.
+Güroskoop on kahe teljega seadeldis, mis võimaldab ühe telje otsa kinnitatud rootoril pöörelda ümber mitme telje. Güroskoobi rõhtne telg on kinnitatud püstise telje külge, nii et rõhtne telg saaks liikuda üles-alla nagu kang. Rõhtsa telje ühes otsas on rootor ja püstisest teljest teisel pool on tasakaalustaja. Tasakaaluasendis on rõhtne telg veepinna suhtes rõhtne. Kui tasakaalustaja nihutada tasakaaluasendi positsioonist püstisele teljele lähemale või sellest kaugemale, viiakse güroskoop tasakaalust välja. Güroskoobi rõhtsa telje asendid on esitatud joonisel \@ref(fig:states-of-gyroscope) leheküljel `r render_pageref(reference = "fig:states-of-gyroscope")`. Tasakaalustajale mõjub raskusjõud $\overrightarrow{F_\text{g; balancer}}$. Kui tasakaalustaja on tasakaaluasendist ära nihutatud, liigub güroskoobi rõhtne telg horisontaalasendist välja[@gyroscope-in-ru]. Kui tasakaalustaja on güroskoobi püstisest teljest kaugemal kui tasakaalupositsiooni puhul, tõuseb rootor ülespoole ja moodustub nurk horisontaalasendi suhtes. Vahetult enne telje muutust pikeneb jõuõlg, millele raskusjõud mõjub. Selle pikenemise ja viimatinimetatud nurga kaudu saab avaldada uue jõuõla ja see avaldis on \@ref(eq:r-balancer-x) leheküljel `r render_pageref(reference = "eq:r-balancer-x")`. Seega on väline jõumoment, mis mõjutab güroskoopi avaldatav valemiga \@ref(eq:torque-of-gyroscope) leheküljel `r render_pageref(reference = "eq:torque-of-gyroscope")`, milles on aluseks võetud jõumomendi põhivalem \@ref(eq:torque) leheküljel `r render_pageref(reference = "eq:torque")`.
 
 ```{r label = "states-of-gyroscope", echo = FALSE, fig.cap = "Güroskoobi kolm asendit: Kõige ülemises asendis on güroskoop tasakaalus ja selles asendis rootoripoolne jõumoment on võrdne tasakaalustajapoolse jõumomendiga. Keskmises asendis on tasakaalustaja nihutatud püstisest teljest kaugemale, mistõttu on selle poole jõumoment suurem rootoripoolsest jõumomendist ja tekkinud on güroskoobi enda jõumoment. Tasakaalustaja nihutamine põhjustab alumise asendi.", echo = FALSE}
 include_external_graphics("rmd/güroskoobi-asendid.svg")
 
 ```
 
-Joonisel \@ref(fig:change-of-angular-momentum-of-gyroscope) leheküljel `r render_pageref(reference = "fig:change-of-angular-momentum-of-gyroscope")` on esitatud skeem güroskoobi impulsimomendi muutumise kohta ülalt vaadatuna. Kuna pretsessiooni nurkkiirus on oluliselt väiksem kui rootori osakeste nurkkiirus, siis impulsimomendi suurus oluliselt ei muutu, küll aga muutub selle suund, kui güroskoobi rootor pöörleb ja güroskoop pole tasakaalus. Sellest nähtusest lähtuvalt avaldan nurga impulsimomendi kahe hetke vahel vastavalt tasandinurga põhivalemile \@ref(eq:plane-angle) leheküljel `r render_pageref(reference = "eq:plane-angle")` ning tulemuseks on valem \@ref(eq:angular-moment-angle) leheküljel `r render_pageref(reference = "eq:angular-moment-angle")`. Pretsessiooninurka saame niimoodi väljendada, sest vastava raadiuse magnituud impulsimomendi magnituudi näol ei muutu güroskoobi tasakaaluasendist väljaviimise tõttu - vahemaa propelleri ja telje kinnituskoha vahel jääb samaks mõlemas juhus.
+\begin{align}
+\overrightarrow{r_\text{balancer; x}} = (\overrightarrow{r_\text{balancer; final}} - \overrightarrow{r_\text{balancer; initial}}) \cdot \mathrm{sin}(\beta)
+(\#eq:r-balancer-x)
+\end{align}
+
+\begin{align}
+\vec{T} = \overrightarrow{r_\text{balancer; x}} \times \overrightarrow{F_\text{balancer}} = ((\overrightarrow{r_\text{balancer; final}} - \overrightarrow{r_\text{balancer; initial}}) \cdot \mathrm{sin}(\beta))  \times \overrightarrow{F_\text{balancer}},
+(\#eq:torque-of-gyroscope)
+\end{align}
+
+Kui propeller ei pöörle, on selle impulsimoment null ja güroskoop ei liigu. Kui propeller töötab, on sellel tangentsiaalkiiruse tõttu impulsimoment. Kui nüüd güroskoop ei ole tasakaalus, siis avaldab güroskoobile mõju raskusjõust tingitud jõumoment, mille suund on joonise järgi vaataja poole, sest tasakaalustaja on püstisest teljest kaugemal kui tasakaalu positsioon. Kuna see jõumoment mõjub kangile paremal, mõjub samasugune jõud kangile rootori poolel vasakul, aga vastassuunas. Impulsimoment jahib jõumomenti, kuid kuna need momendid on üksteisega alati risti, siis ei saa impulsimoment jõumomenti kätte[@lec]. Küll aga piisab jõumomendist, et panna rootor liikuma ümber püstise telje vaatajast eemale. Nii kaua, kuni rootor pöörleb ja tasakaalustaja on tasakaalu positsioonilt ära, liigub rootor ümber güroskoobi püstise telje ja sellist liikumist nimetatakse pretsesseerumiseks. Vastav kiirus on pretsessiooni nurkkiirus. Kasutades nurkkiiruse üldvalemit  \@ref(eq:angular-velocity) leheküljel `r render_pageref(reference = "eq:angular-velocity")`, avaldan valemis \@ref(eq:angular-velocity-of-precession) leheküljel `r render_pageref(reference = "eq:angular-velocity-of-precession")` pretsessiooni nurkkiiruse.
+
+\begin{align}
+\omega_\text{P} = \frac{\mathrm{d}(\theta)}{\mathrm{d}(t)}.
+(\#eq:angular-velocity-of-precession)
+\end{align}
+
+Ümber püstise telje liikuva rootori impulsimoment muutub pidevalt, sest muutub rootorit hoidva kangi asend. Joonisel \@ref(fig:change-of-angular-momentum-of-gyroscope) leheküljel `r render_pageref(reference = "fig:change-of-angular-momentum-of-gyroscope")` on esitatud skeem güroskoobi impulsimomendi muutumise kohta ülalt vaadatuna. Kuna pretsessiooni nurkkiirus on oluliselt väiksem kui rootori osakeste nurkkiirus, siis impulsimomendi suurus oluliselt ei muutu, küll aga muutub selle suund, kui güroskoobi rootor pöörleb ja güroskoop pole tasakaalus. Suunamuutuse nurga saab välja lugeda seadme horisontaalselt osalt, mistõttu on vajalik avaldada impulsimomendi rõhtne komponent ja see on esitatud valemina \@ref(eq:x-component-of-angular-momentum) leheküljel `r render_pageref(reference = "eq:x-component-of-angular-momentum")`.
 
 ```{r label = "change-of-angular-momentum-of-gyroscope", echo = FALSE, fig.cap = "Güroskoop vaadatuna ülalt. Esitatud on ainult olulised detailid.", echo = FALSE}
 include_external_graphics("rmd/güroskoobi-impulsimoment.svg")
 
 ```
 
+\begin{align}
+\overrightarrow{L_\text{x}} = \vec{L} \cdot \mathrm{sin}(\beta)
+(\#eq:x-component-of-angular-momentum)
+\end{align}
+
+Pretsessiooninurga väikest muutu (valem \@ref(eq:angular-moment-angle) leheküljel `r render_pageref(reference = "eq:angular-moment-angle")`) saame väljendada vastavalt tasandinurga põhivalemile \@ref(eq:plane-angle) leheküljel `r render_pageref(reference = "eq:plane-angle")` impulsimomendi muudu ja impulsimomendi rõhtsa komponendi kaudu, sest kui nurk on väike, ei ole kaare pikkus oluliselt erinev lõigu pikkusest, sest kaar koosnebki lõikudest. 
+
 ```{=tex}
 \begin{align}
-\theta = \frac{\mathrm{d}(\vec{L})}{\vec{L}}.
+\mathrm{d}(\theta) = \frac{\mathrm{d}(\vec{L})}{\overrightarrow{L_\text{x}}} = \frac{\mathrm{d}(\vec{L})}{\vec{L} \cdot \mathrm{sin}(\beta)}.
 (\#eq:angular-moment-angle)
 \end{align}
 
 ```
 
+Asendan pretsessiooni nurkkiiruse valemisse \@ref(eq:angular-velocity-of-precession) leheküljel `r render_pageref(reference = "eq:angular-velocity-of-precession")` väikese nurgamuutuse impulsimomentide vahel valemist \@ref(eq:angular-moment-angle) leheküljel `r render_pageref(reference = "eq:angular-moment-angle")`, impulsimomendi väikese muutuse jõumomendi valemist \@ref(eq:torque-by-angular-velocity) leheküljel `r render_pageref(reference = "eq:torque-by-angular-velocity")`, jõumomendi valemist \@ref(eq:torque-of-gyroscope) leheküljel `r render_pageref(reference = "eq:torque-of-gyroscope")` ja impulsimomendi vastavast inertsimomendi valemist \@ref(eq:moment-of-inertia-by-angular-moment) leheküljel `r render_pageref(reference = "eq:moment-of-inertia-by-angular-moment")`, saades valemi \@ref(eq:angular-velocity-of-precession-by-angular-moment) leheküljel `r render_pageref(reference = "eq:angular-velocity-of-precession-by-angular-moment")`.
 
-
-
-
-
-
-
-
-
-
-
-
-Joonisel \@ref(fig:rotor-of-gyroscope-from-top) leheküljel `r render_pageref(reference = "fig:rotor-of-gyroscope-from-top")` on alumises osas esitatud skeem güroskoobi rootoriosa poolt vaadatuna güroskoobi püstise teljega paralleelselt. Ülemises osas on güroskoop külgvaates nagu joonisel \@ref(fig:states-of-gyroscope) leheküljel `r render_pageref(reference = "fig:states-of-gyroscope")`. Näidatud on ainult püstine telg, rootor, vajalikud nurgad ja vektorid. Güroskoobi tasakaalust väljaviimise tulemusena tekib güroskoobi jõumoment, mis nihutab rootorit ümber püstise telje. Nurk, mille võrra rootor ümber püstise telje liigub, on tähistatud kui \gamma. Selle nurga muut ajas on pretsessiooni nurkkiirus, mida saab väljendada üldise nurkkiiruse valemi \@ref(eq:angular-velocity) leheküljel `r render_pageref(reference = "eq:angular-velocity")` järgi valemina \@ref(eq:precession-angular-speed) leheküljel `r render_pageref(reference = "eq:precession-angular-speed")`.
-
-```{r label = "rotor-of-gyroscope-from-top", echo = FALSE, fig.cap = "Güroskoop vaadatuna rootori poolelt.", echo = FALSE}
-include_external_graphics("rmd/güroskoobi-rootor-pealtvaates.svg")
-
-```
-
-```{=tex}
 \begin{align}
-\omega = \frac{\mathrm{d}(\gamma)}{\mathrm{d}(t)}.
-(\#eq:precession-angular-speed)
+\omega_\text{P} = \frac{\frac{\mathrm{d}(\vec{L})}{\vec{L} \cdot \mathrm{sin}(\beta)}}{\mathrm{d}(t)} = \frac{\vec{T}}{\vec{L} \cdot \mathrm{sin}(\beta)}\\
+= \frac{((\overrightarrow{r_\text{balancer; final}} - \overrightarrow{r_\text{balancer; initial}}) \cdot \mathrm{sin}(\beta))  \times \overrightarrow{F_\text{balancer}}}{\vec{L} \cdot \mathrm{sin}(\beta)}\\
+= \frac{((\overrightarrow{r_\text{balancer; final}} - \overrightarrow{r_\text{balancer; initial}}))  \times \overrightarrow{F_\text{balancer}}}{I \cdot \vec{\omega}}.
+(\#eq:angular-velocity-of-precession-by-angular-moment)
 \end{align}
-
-```
-
-Vastavalt nurga põhivalemile \@ref(eq:plane-angle) leheküljel `r render_pageref(reference = "eq:plane-angle")` sõltub pretsessiooninurk impulsimomendi muudust ja see seos on esitatud valemina \@ref(eq:precession-angle-by-angular-moment) leheküljel `r render_pageref(reference = "eq:precession-angle-by-angular-moment")`.
-
-```{=tex}
-\begin{align}
-\gamma = \frac{\mathrm{\vec{L}}}{\vec{L} \cdot \mathrm{sin}(\theta)}.
-(\#eq:precession-angle-by-angular-moment)
-\end{align}
-
-```
 
 \twocolumn
