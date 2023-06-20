@@ -69,6 +69,15 @@
     
     Nutitelefon kaalus \qty{`r as.character(m_nutikas)`}{\kg}.
     
+18. Kaalusin tasakaalustaja.
+
+    ```{r label = "m_balancer"}
+    m_balancer <- .375
+    
+    ```
+    
+    Tasakaalustaja mass on \qty{`r as.character(m_balancer)`}{\kg}.
+    
 18. Lasen arvutada tabelis \@ref(tab:precession) leheküljel `r render_pageref(reference = "tab:precession")` nurkkiiruse, selle muudu (\@ref(eq:angular-velocity) leheküljel `r render_pageref(reference = "eq:angular-velocity")`), pretsessiooninurga muutuse ja pretsessiooninurga[@ling_2018_university(lk 552)] read.
 
 ```{r label = "precession"}

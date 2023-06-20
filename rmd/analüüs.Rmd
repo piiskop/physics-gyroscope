@@ -36,4 +36,111 @@ ggplot(
     
 Teooria seosega \@ref(eq:angular-velocity-of-precession-by-angular-moment) leheküljel `r render_pageref(reference = "eq:angular-velocity-of-precession-by-angular-moment")` ennustab pöördvõrdelist sõltuvust.
 
+Joonisel \@ref(fig:angular-speed) leheküljel `r render_pageref(reference = "fig:angular-speed")` olev graafik lineariseeritud kujul[@a2019_how] on esitatud joonisel \@ref(fig:linearized-angular-speed) leheküljel `r render_pageref(reference = "fig:linearized-angular-speed")`.
+
+```{r label = "linearized-angular-speed", fig.cap="Lineariseeritud nurkkiiruste graafik. Propelleri nurkkiiruse asemel on esitatud selle pöördväärtus, mis näitab, mitu sekundit ühe radiaani läbimine kestis."}
+linearized_omega <- 1 / omega
+data_frame_of_precession_with_linearized_omega <- cbind(data_frame_of_precession, linearized_omega)
+
+colnames(data_frame_of_precession_with_linearized_omega) <- c(
+  "$\\frac{N}{\\unit{\\per\\s}}$",
+  "$\\frac{\\omega}{\\unit{\\per\\s}}$",
+  "$\\frac{\\Delta(N)}{\\unit{\\per\\s}}$",
+  "$\\frac{\\Delta(\\omega)}{\\unit{\\per\\s}}$",
+  "$\\frac{\\Delta(\\alpha)}{\\unit{\\degree}}$",
+  "$\\Delta(\\alpha)$",
+  "$\\frac{\\Delta(t)}{\\unit{\\s}}$",
+  "$\\frac{\\omega_\\text{P}}{\\unit{\\per\\s}}$",
+  "$\\frac{\\frac{1}{\\omega}}{\\unit{\\s}}$"
+)
+
+librarian::shelf(c(
+  "ggpmisc"
+))
+
+ggplot(
+  data <- data_frame_of_precession_with_linearized_omega,
+  mapping <- aes(x = `$\\frac{\\frac{1}{\\omega}}{\\unit{\\s}}$`, y = `$\\frac{\\omega_\\text{P}}{\\unit{\\per\\s}}$`)
+) +
+  geom_point(shape = 23, size = 1) +
+  labs(x = TeX("$\\frac{\\frac{1}{\\omega}}{s}$"), y = TeX("$\\frac{\\omega_P}{\\frac{1}{s}}$")) +
+  theme(
+    axis.title.x = element_text(colour = color_x),
+    axis.text.x = element_text(colour = color_x),
+    axis.ticks.x = element_line(colour = color_x),
+    axis.title.y = element_text(colour = color_y),
+    axis.text.y = element_text(colour = color_y),
+    axis.ticks.y = element_line(colour = color_y)
+  ) +
+  stat_poly_line()
+
+```
+
+Graafikult näeme, et esimesed viis andmepunkti moodustavad lineaarse sõltuvuse, kuid viimased kaks segavad. Võimalik, et need viimased kaks andmepunkti olid valesti mõõdetud, aga võimalik ka, et valem \@ref(eq:angular-velocity-of-precession-by-angular-moment) leheküljel `r render_pageref(reference = "eq:angular-velocity-of-precession-by-angular-moment")` ei kehti. Lähtun, et valem kehtib ja käsitlen kaht viimast andmepunkti kõrvalekaldujana. Lasen koostada uue lineariseeritud graafiku ilma kõrvalekaldujateta (joonis \@ref(fig:linearized-angular-speed-without-outliers) leheküljel `r render_pageref(reference = "fig:linearized-angular-speed-without-outliers")`).
+
+```{r label = "linearized-angular-speed-without-outliers", fig.cap="Lineariseeritud graafik kõrvalekaldujateta."}
+librarian::shelf(c(
+  "dplyr"
+))
+number_of_rows_in_data_frame_of_precession_with_linearized_omega <- nrow(data_frame_of_precession_with_linearized_omega)
+data_frame_of_precession_with_linearized_omega_without_outliers <- data_frame_of_precession_with_linearized_omega[-c((number_of_rows_in_data_frame_of_precession_with_linearized_omega - 1):number_of_rows_in_data_frame_of_precession_with_linearized_omega), ]
+
+ggplot(
+  data <- data_frame_of_precession_with_linearized_omega_without_outliers,
+  mapping <- aes(x = `$\\frac{\\frac{1}{\\omega}}{\\unit{\\s}}$`, y = `$\\frac{\\omega_\\text{P}}{\\unit{\\per\\s}}$`)
+) +
+  geom_point(shape = 23, size = 1) +
+  labs(x = TeX("$\\frac{\\frac{1}{\\omega}}{s}$"), y = TeX("$\\frac{\\omega_P}{\\frac{1}{s}}$")) +
+  theme(
+    axis.title.x = element_text(colour = color_x),
+    axis.text.x = element_text(colour = color_x),
+    axis.ticks.x = element_line(colour = color_x),
+    axis.title.y = element_text(colour = color_y),
+    axis.text.y = element_text(colour = color_y),
+    axis.ticks.y = element_line(colour = color_y)
+  ) +
+  stat_poly_line()
+
+```
+
+Lasen arvutada Pearsoni korrelatsioonikordaja:
+
+```{r label = "Pearson"}
+R <- cor(
+  x = data_frame_of_precession_with_linearized_omega_without_outliers$`$\\frac{\\frac{1}{\\omega}}{\\unit{\\s}}$`,
+  y = data_frame_of_precession_with_linearized_omega_without_outliers$`$\\frac{\\omega_\\text{P}}{\\unit{\\per\\s}}$`,
+  method = 'pearson'
+)
+
+```
+
+Pearsoni korrelatsioonikordaja on \num{`r as.character(signif(x = R, digits = 2))`}, millest johtuvalt järeldan, et kui kaks eemaldatud andmepunkti olid kõrvalekaldujad, siis minu eksperiment kinnitas teooriat ja seos \@ref(eq:angular-velocity-of-precession-by-angular-moment) leheküljel `r render_pageref(reference = "eq:angular-velocity-of-precession-by-angular-moment")` kehtib.
+
+Lasen tabelisse \@ref(tab:precession) leheküljel `r render_pageref(reference = "tab:precession")` lisada rea inertsimomendi kohta, mis arvutatakse vastavalt valemile \@ref(eq:force-of-gravitation-on-balancer) leheküljel `r render_pageref(reference = "eq:force-of-gravitation-on-balancer")`. Täiendatud tabel, mis ei sisalda nüüd kõrvalekaldujaid, on \@ref(tab:moment-of-inertia-of-gyroscope) leheküljel `r render_pageref(reference = "tab:moment-of-inertia-of-gyroscope")`.
+
+```{r label = "moment-of-inertia-of-gyroscope"}
+I <- delta_x * m_balancer * g_Tallinn / (data_frame_of_precession_with_linearized_omega_without_outliers$`$\\frac{\\omega_\\text{P}}{\\unit{\\per\\s}}$` * data_frame_of_precession_with_linearized_omega_without_outliers$`$\\frac{\\omega}{\\unit{\\per\\s}}$`)
+data_frame_of_precession_with_moment_of_inertia_without_outliers <- cbind(data_frame_of_precession_with_linearized_omega_without_outliers, I)
+
+colnames(data_frame_of_precession_with_moment_of_inertia_without_outliers) <- c(
+  "$\\frac{N}{\\unit{\\per\\s}}$",
+  "$\\frac{\\omega}{\\unit{\\per\\s}}$",
+  "$\\frac{\\Delta(N)}{\\unit{\\per\\s}}$",
+  "$\\frac{\\Delta(\\omega)}{\\unit{\\per\\s}}$",
+  "$\\frac{\\Delta(\\alpha)}{\\unit{\\degree}}$",
+  "$\\Delta(\\alpha)$",
+  "$\\frac{\\Delta(t)}{\\unit{\\s}}$",
+  "$\\frac{\\omega_\\text{P}}{\\unit{\\per\\s}}$",
+  "$\\frac{\\frac{1}{\\omega}}{\\unit{\\s}}$",
+  "$\\frac{I}{\\unit{\\kg\\m\\squared}}$"
+)
+
+print_table(
+  table = data_frame_of_precession_with_moment_of_inertia_without_outliers,
+  caption = "Pretsessiooni andmed intertsimomendiga.",
+  digits = 3
+)
+
+```
+
 \twocolumn

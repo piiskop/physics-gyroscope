@@ -57,4 +57,19 @@ Asendan pretsessiooni nurkkiiruse valemisse \@ref(eq:angular-velocity-of-precess
 (\#eq:angular-velocity-of-precession-by-angular-moment)
 \end{align}
 
+Kirjutan avaldisse \@ref(eq:force-of-gravitation-on-balancer) leheküljel `r render_pageref(reference = "eq:force-of-gravitation-on-balancer")` lahti tasakaalustajale mõjuva raskusjõu kasutades valemit \@ref(eq:force) leheküljel `r render_pageref(reference = "eq:force")` ja arvestades, et eksperiment sooritati Tallinnas.
+
+\begin{align}
+\overrightarrow{F_\text{balancer}} = m_\text{balancer} \cdot \overrightarrow{g_\text{Tallinn}}
+(\#eq:force-of-gravitation-on-balancer)
+\end{align}
+
+Avaldan güroskoobi inertsimomendi pretsessiooni nurkkiruse seosest propelleri nurkkiiruse kaudu (valem \@ref(eq:angular-velocity-of-precession-by-angular-moment) leheküljel `r render_pageref(reference = "eq:angular-velocity-of-precession-by-angular-moment")`) avaldisena \@ref(eq:angular-velocity-of-precession-by-angular-moment) leheküljel `r render_pageref(reference = "eq:angular-velocity-of-precession-by-angular-moment")` asendades tasakaalustajale mõjuva raskusjõu valemist \@ref(eq:force-of-gravitation-on-balancer) leheküljel `r render_pageref(reference = "eq:force-of-gravitation-on-balancer")`.
+
+\begin{align}
+I = \frac{((\overrightarrow{r_\text{balancer; final}} - \overrightarrow{r_\text{balancer; initial}}))  \times \overrightarrow{F_\text{balancer}}}{\omega_\text{P} \cdot \vec{\omega}}\\
+= \frac{((\overrightarrow{r_\text{balancer; final}} - \overrightarrow{r_\text{balancer; initial}}))  \times m_\text{balancer} \cdot \overrightarrow{g_\text{Tallinn}}}{\omega_\text{P} \cdot \vec{\omega}}
+(\#eq:moment-of-inertia-by-angular-velocity-of-precession)
+\end{align}
+
 \twocolumn
