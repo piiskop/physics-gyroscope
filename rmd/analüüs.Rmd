@@ -76,14 +76,15 @@ ggplot(
 
 ```
 
-Graafikult näeme, et esimesed viis andmepunkti moodustavad lineaarse sõltuvuse, kuid viimased kaks segavad. Võimalik, et need viimased kaks andmepunkti olid valesti mõõdetud, aga võimalik ka, et valem \@ref(eq:angular-velocity-of-precession-by-angular-moment) leheküljel `r render_pageref(reference = "eq:angular-velocity-of-precession-by-angular-moment")` ei kehti. Lähtun, et valem kehtib ja käsitlen kaht viimast andmepunkti kõrvalekaldujana. Lasen koostada uue lineariseeritud graafiku ilma kõrvalekaldujateta (joonis \@ref(fig:linearized-angular-speed-without-outliers) leheküljel `r render_pageref(reference = "fig:linearized-angular-speed-without-outliers")`).
+Graafikult näeme, et esimesed viis andmepunkti moodustavad lineaarse sõltuvuse, kuid viimased kaks segavad. Võimalik, et need viimased kaks andmepunkti olid valesti mõõdetud, aga võimalik ka, et valem \@ref(eq:angular-velocity-of-precession-by-angular-moment) leheküljel `r render_pageref(reference = "eq:angular-velocity-of-precession-by-angular-moment")` ei kehti. Eeldan, et valem kehtib ja käsitlen kaht viimast andmepunkti kõrvalekaldujana. Lasen koostada uue lineariseeritud graafiku ilma kõrvalekaldujateta (joonis \@ref(fig:linearized-angular-speed-without-outliers) leheküljel `r render_pageref(reference = "fig:linearized-angular-speed-without-outliers")`).
 
 ```{r label = "linearized-angular-speed-without-outliers", fig.cap="Lineariseeritud graafik kõrvalekaldujateta."}
 librarian::shelf(c(
   "dplyr"
 ))
 number_of_rows_in_data_frame_of_precession_with_linearized_omega <- nrow(data_frame_of_precession_with_linearized_omega)
-data_frame_of_precession_with_linearized_omega_without_outliers <- data_frame_of_precession_with_linearized_omega[-c((number_of_rows_in_data_frame_of_precession_with_linearized_omega - 1):number_of_rows_in_data_frame_of_precession_with_linearized_omega), ]
+data_frame_of_precession_with_linearized_omega_without_outliers <- data_frame_of_precession_with_linearized_omega[
+  -c((number_of_rows_in_data_frame_of_precession_with_linearized_omega - 1):number_of_rows_in_data_frame_of_precession_with_linearized_omega), ]
 
 ggplot(
   data <- data_frame_of_precession_with_linearized_omega_without_outliers,
@@ -116,7 +117,7 @@ R <- cor(
 
 Pearsoni korrelatsioonikordaja on \num{`r as.character(signif(x = R, digits = 2))`}, millest johtuvalt järeldan, et kui kaks eemaldatud andmepunkti olid kõrvalekaldujad, siis minu eksperiment kinnitas teooriat ja seos \@ref(eq:angular-velocity-of-precession-by-angular-moment) leheküljel `r render_pageref(reference = "eq:angular-velocity-of-precession-by-angular-moment")` kehtib.
 
-Lasen tabelisse \@ref(tab:precession) leheküljel `r render_pageref(reference = "tab:precession")` lisada rea inertsimomendi kohta, mis arvutatakse vastavalt valemile \@ref(eq:force-of-gravitation-on-balancer) leheküljel `r render_pageref(reference = "eq:force-of-gravitation-on-balancer")`. Täiendatud tabel, mis ei sisalda nüüd kõrvalekaldujaid, on \@ref(tab:moment-of-inertia-of-gyroscope) leheküljel `r render_pageref(reference = "tab:moment-of-inertia-of-gyroscope")`.
+Lasen tabelisse \@ref(tab:precession) leheküljel `r render_pageref(reference = "tab:precession")` lisada tulba inertsimomendi kohta, mis arvutatakse vastavalt valemile \@ref(eq:force-of-gravitation-on-balancer) leheküljel `r render_pageref(reference = "eq:force-of-gravitation-on-balancer")`. Täiendatud tabel, mis ei sisalda nüüd kõrvalekaldujaid, on \@ref(tab:moment-of-inertia-of-gyroscope) leheküljel `r render_pageref(reference = "tab:moment-of-inertia-of-gyroscope")`.
 
 ```{r label = "moment-of-inertia-of-gyroscope"}
 I <- delta_x * m_balancer * g_Tallinn / (data_frame_of_precession_with_linearized_omega_without_outliers$`$\\frac{\\omega_\\text{P}}{\\unit{\\per\\s}}$` * data_frame_of_precession_with_linearized_omega_without_outliers$`$\\frac{\\omega}{\\unit{\\per\\s}}$`)
@@ -142,5 +143,83 @@ print_table(
 )
 
 ```
+
+Lasen arvutada inertsimomendi keskmise väärtuse koos veaga:
+
+```{r label = "uncertainty-of-moment-of-inertia"}
+mean_of_I <- mean(I)
+delta_I <- max(I) - mean_of_I
+
+```
+
+Inertsimoment oli \qty{`r as.character(signif(x = mean_of_I, digits = 2))` \pm `r as.character(signif(x = delta_I, digits = 2))`}{\kg\m\squared}. Inertsimoment ei paista katseandmete põhjal sõltuvat hooratta pretsessiooni nurkkiirusest ja pöörlemiskiirusest. Kui pöörlemiskiirus suureneb, siis pretsessiooni nurkkiirus kahaneb.
+
+```{r label = "m_throwable"}
+m_throwable <- 1
+
+```
+
+Kui eksisteerib energia mahus vastavalt hooratta pöörlemisenergiale, siis sellise energiaga saaks eseme massiga \qty{`r as.character(m_throwable)`}{\kg} visata teatud kõrgusele, millega täiendan tabelit, et saada uus tabel \@ref(tab:heights) leheküljel `r render_pageref(reference = "tab:heights")`.
+
+```{r label = "heights"}
+h <- calculate_height(
+  I = mean_of_I,
+  omega = data_frame_of_precession_with_moment_of_inertia_without_outliers$`$\\frac{\\omega}{\\unit{\\per\\s}}$`,
+  m = m_throwable
+)
+
+data_frame_of_precession_with_height_without_outliers <- cbind(data_frame_of_precession_with_moment_of_inertia_without_outliers, h)
+
+colnames(data_frame_of_precession_with_height_without_outliers) <- c(
+  "$\\frac{N}{\\unit{\\per\\s}}$",
+  "$\\frac{\\omega}{\\unit{\\per\\s}}$",
+  "$\\frac{\\Delta(N)}{\\unit{\\per\\s}}$",
+  "$\\frac{\\Delta(\\omega)}{\\unit{\\per\\s}}$",
+  "$\\frac{\\Delta(\\alpha)}{\\unit{\\degree}}$",
+  "$\\Delta(\\alpha)$",
+  "$\\frac{\\Delta(t)}{\\unit{\\s}}$",
+  "$\\frac{\\omega_\\text{P}}{\\unit{\\per\\s}}$",
+  "$\\frac{\\frac{1}{\\omega}}{\\unit{\\s}}$",
+  "$\\frac{I}{\\unit{\\kg\\m\\squared}}$",
+  "$\\frac{h}{\\unit{\\m}}$"
+)
+
+print_table(
+  table = data_frame_of_precession_with_height_without_outliers,
+  caption = paste("Pretsessiooni andmed kõrgusega, kui kõrgele saaks güroskoobi energiaga heita eseme massiga \\qty{", as.character(m_throwable), "}{\\kg}.", paste = ""),
+  digits = 3
+) %>%
+  landscape()
+
+```
+
+Joonisel \@ref(fig:height-vs-angular-speed) leheküljel `r render_pageref(reference = "fig:height-vs-angular-speed")` on esitatud lennukõrguse sõltuvus nurkkiirusest.
+
+```{r label = "height-vs-angular-speed", fig.cap=paste("Nii kõrgele saaks güroskoobi energiaga heita eseme massiga \\qty{", as.character(m_throwable), "}{\\kg}.", paste = "")}
+
+margin_of_omega_without_outliers <- data_frame_of_precession_with_height_without_outliers$`$\\frac{\\Delta(\\omega)}{\\unit{\\per\\s}}$` / 2
+
+color_of_height <- "#ff00ff"
+
+ggplot(
+  data <- data_frame_of_precession_with_height_without_outliers,
+  mapping <- aes(x = `$\\frac{\\omega}{\\unit{\\per\\s}}$`, y = `$\\frac{h}{\\unit{\\m}}$`)
+) +
+  geom_point(shape = 23, size = 1) +
+  labs(x = TeX("$\\frac{\\omega}{\\frac{1}{s}}$"), y = TeX("$\\frac{h}{m}$")) +
+  theme(
+    axis.title.x = element_text(colour = color_x),
+    axis.text.x = element_text(colour = color_x),
+    axis.ticks.x = element_line(colour = color_x),
+    axis.title.y = element_text(colour = color_of_height),
+    axis.text.y = element_text(colour = color_of_height),
+    axis.ticks.y = element_line(colour = color_of_height)
+  ) +
+  geom_errorbarh(aes(xmin = `$\\frac{\\omega}{\\unit{\\per\\s}}$` - margin_of_omega_without_outliers, xmax = `$\\frac{\\omega}{\\unit{\\per\\s}}$` + margin_of_omega_without_outliers, y = `$\\frac{h}{\\unit{\\m}}$`), color = color_x) +
+  stat_poly_line(formula = y ~ poly(x, 2))
+
+```
+
+Valem \@ref(eq:height) leheküljel `r render_pageref(reference = "eq:height")` ennustab ruutsõltuvust. Nagu graafikult näha, eksisteerib ruutsõltuvus, mistõttu minu katseandmed kinnitavad teooria poolt ennustatavat sõltuvust. Muidugi tuleb arvestada, et graafik ei sisalda kaht kõrvalekaldujat. Graafik läbib kõiki järelejäetud andmepunkte arvestades mõõtemääramatust. Sellest johtuvalt kinnitavad katseandmed teooriat piisavalt hästi.
 
 \twocolumn

@@ -432,6 +432,8 @@ Avaldan avaldisest \@ref(eq:planck-constant) leheküljel `r render_pageref(refer
 
 ## Impulss
 
+### Lineaarne impulss
+
 impulss
 : [massi](#mass) ja [kiiruse](#speed) korrutis[@haynes_2014_crc(lk 2-59)] (avaldis \@ref(eq:momentum) leheküljel `r render_pageref(reference = "eq:momentum")`)
 
@@ -453,7 +455,7 @@ Dimensioonanalüüs impulsi valemile on esitatud avaldisena \@ref(eq:dimensional
 
 ```
 
-## Impulsimoment
+### Impulsimoment
 
 osakese nurkimpulss punkti ümber
 : sellest punktist osakese raadiusvektori ja osakese impulsi vektorkorrutis (avaldis \@ref(eq:angular-momentum) leheküljel `r render_pageref(reference = "eq:angular-momentum")`) [@haynes_2014_crc(lk 2-45)]
@@ -509,27 +511,6 @@ I = \sum{\frac{\vec{p_i}}{\vec{v_i}} \times r_i^2} = \sum{\frac{\vec{p}}{\vec{\o
 (\#eq:moment-of-inertia-by-angular-moment)
 \end{align}
 
-```
-
-## Jõud
-
-Jõud on [impulsi](#momentum) muut ajas (avaldis \@ref(eq:force) leheküljel `r render_pageref(reference = "eq:force")`).
-
-```{=tex}
-\begin{align}
-\vec{F} = \frac{\mathrm{d}(\vec{p})}{\mathrm{d}(t)} = m \cdot \frac{\mathrm{d}(\vec{v})}{\mathrm{d}(t)} = m \cdot \vec{a},
-(\#eq:force)
-\end{align}
-
-```
-
-kus *m* on mass ja $\vec{a}$ on kiirenduse vektor [@haynes_2014_crc(lk 2-2)]. Impulsi dimensionaalanalüüs on esitatud avaldisena \@ref(eq:dimensional-analysis-for-force) leheküljel `r render_pageref(reference = "eq:dimensional-analysis-for-force")` ja sellest johtuvalt on ühik $\unit{\m\kg\per\s\squared}$ või lühemalt $\unit{\N}$.
-
-```{=tex}
-\begin{align}
-\mathrm{M \times \frac{L}{T^2} = \frac{L \times M}{T^2}}.
-(\#eq:dimensional-analysis-for-force)
-\end{align}
 ```
 
 \onecolumn
@@ -610,7 +591,30 @@ V_{2; y} \cdot V_{3; z} - V_{2; z} \cdot V_{3; y} & V_{2; z} \cdot V_{3; x} - V_
 \end{landscape}
 \twocolumn
 
-## Jõumoment
+## Jõud
+
+### Lineaarne jõud
+
+Jõud on [impulsi](#momentum) muut ajas (avaldis \@ref(eq:force) leheküljel `r render_pageref(reference = "eq:force")`).
+
+```{=tex}
+\begin{align}
+\vec{F} = \frac{\mathrm{d}(\vec{p})}{\mathrm{d}(t)} = m \cdot \frac{\mathrm{d}(\vec{v})}{\mathrm{d}(t)} = m \cdot \vec{a},
+(\#eq:force)
+\end{align}
+
+```
+
+kus *m* on mass ja $\vec{a}$ on kiirenduse vektor [@haynes_2014_crc(lk 2-2)]. Impulsi dimensionaalanalüüs on esitatud avaldisena \@ref(eq:dimensional-analysis-for-force) leheküljel `r render_pageref(reference = "eq:dimensional-analysis-for-force")` ja sellest johtuvalt on ühik $\unit{\m\kg\per\s\squared}$ või lühemalt $\unit{\N}$.
+
+```{=tex}
+\begin{align}
+\mathrm{M \times \frac{L}{T^2} = \frac{L \times M}{T^2}}.
+(\#eq:dimensional-analysis-for-force)
+\end{align}
+```
+
+### Jõumoment
 
 Jõumomendi valem on \@ref(eq:torque) leheküljel `r render_pageref(reference = "eq:torque")`[@haynes_2014_crc(lk 2-2)].
 
@@ -663,3 +667,112 @@ Et väljendada jõumoment impulsimomendi kaudu, asendan jõumomendi avaldamise v
 \end{align}
 
 ```
+
+## Energia
+
+### Potentsiaalne energia
+
+potentsiaalne energia
+: süsteemi energia osa, mis on seotud selle asukohaga jõuväljas[@haynes_2014_crc(lk 2-62)] (valem \@ref(eq:potential-energy) leheküljel `r render_pageref(reference = "eq:potential-energy")`[@haynes_2014_crc(lk 2-2)]).
+
+```{=latex}
+\begin{align}
+E_\mathrm{p} = \int{\vec{F}} \cdot \mathrm{d}(s),(\#eq:potential-energy) 
+\end{align}
+
+```
+
+milles
+
+*s*
+: tee pikkus[@haynes_2014_crc(lk 2-1)]
+
+Dimensionaalanalüüs on esitatud avaldisena \@ref(eq:dimensional-analysis-of-potential-energy) leheküljel `r render_pageref(reference = "eq:dimensional-analysis-of-potential-energy")`.
+
+```{=tex}
+\begin{align}
+\mathrm{\frac{L \cdot M}{T^2} \cdot L = \frac{L^2 \cdot M}{T^2}}.
+(\#eq:dimensional-analysis-of-potential-energy)
+\end{align}
+
+```
+
+Seetõttu ühik on $\unit{\m\squared\kg\per\second\squared}$ või lühemalt $\unit{\m\N}$ või kõige lühemalt $\unit{\J}$.
+
+### Kineetiline energia
+
+#### Definitsioon
+
+kineetiline energia
+: energia, mis on seotud osakeste süsteemi liikumisega kindlaksmääratud võrdlusraamis[@haynes_2014_crc, p. 2-57]
+
+#### Lineaarne kineetiline energia
+
+Ühe osakese [massiga *m*](#mass), mis liigub [kiirusega *v*](#speed), kineetiline energia on avaldatav valemiga \@ref(eq:kinetic-energy) leheküljel `r render_pageref(reference = "eq:kinetic-energy")`[@haynes_2014_crc, p. 2-2].
+
+```{=tex}
+\begin{align}
+E_\mathrm{k} = \frac{m \cdot v^2}{2}
+(\#eq:kinetic-energy)
+\end{align}
+
+```
+
+Dimensionaalanalüüs on esitatud avaldisena \@ref(eq:dimensional-analysis-of-kinetic-energy) leheküljel `r render_pageref(reference = "eq:dimensional-analysis-of-kinetic-energy")` ja sellest johtuvalt on ühik \unit{\kg\m\squared\per\second\squared}.
+
+```{=tex}
+\begin{align}
+\mathrm{M \times \frac{L}{T}^2 = \frac{M \times L^2}{T^2}}.
+(\#eq:dimensional-analysis-of-kinetic-energy)
+\end{align}
+
+```
+
+#### Pöörlemise energia
+
+Kui asendada kineetilise energia põhivalemisse \@ref(eq:kinetic-energy) leheküljel `r render_pageref(reference = "eq:kinetic-energy")` tangentsiaalkiirus vastavast nurkkiiruse valemist \@ref(eq:angular-velocity-by-tangential-velocity) leheküljel `r render_pageref(reference = "eq:angular-velocity-by-tangential-velocity")` ja inertsimomendi viimase põhivalemist \@ref(eq:moment-of-inertia) leheküljel `r render_pageref(reference = "eq:moment-of-inertia")`, saan pöörlemise energia valemi \@ref(eq:rotational-kinetic-energy) leheküljel `r render_pageref(reference = "eq:rotational-kinetic-energy")`.
+
+\begin{align}
+E_\mathrm{k} = \frac{m \cdot (r \cdot \omega)^2}{2} = \frac{m \cdot r^2 \cdot \omega^2}{2} = \frac{I \times \omega^2}{2}.
+(\#eq:rotational-kinetic-energy)
+\end{align}
+
+Dimensionaalanalüüs on esitatud valemina \@ref(eq:dimensional-analysis-of-rotational-kinetic-energy) leheküljel `r render_pageref(reference = "eq:dimensional-analysis-of-rotational-kinetic-energy")` ja sellest johtuvalt on ühik \unit{\kg\m\squared\per\second\squared}.
+
+\begin{align}
+\mathrm{\frac{M \times L^2 \times (\frac{1}{\mathrm{T}})^2}{1} = \frac{M \times L^2}{T^2}}.
+(\#eq:dimensional-analysis-of-rotational-kinetic-energy)
+\end{align}
+
+### Mehaanilise energia jäävus
+
+Kogu mehaaniline energia on kineetilise ja potentsiaalse energia summa igal hetkel[@giancoli_2014_physics(lk 150)] (valem \@ref(eq:total-mechanical-energy) leheküljel `r render_pageref(reference = "eq:total-mechanical-energy")`).
+
+```{=tex}
+\begin{align}
+E = E_\mathrm{k} + E_\mathrm{p}.
+(\#eq:total-mechanical-energy)
+\end{align}
+
+```
+
+mehaanilise energia jäävuse seadus
+: kogu mehaaniline energia jääb konstantseks seni, kuni ükski mittekonstantne jõud ei mõju
+
+Mehaanilise energia jäävuse seadus on väljendatud avaldises \@ref(eq:conservation-of-mechanical-energy) leheküljel `r render_pageref(reference = "eq:conservation-of-mechanical-energy")`, milles on lahti kirjutatud kogu mehaaniline energia avaldisest \@ref(eq:total-mechanical-energy) leheküljel `r render_pageref(reference = "eq:total-mechanical-energy")`.
+
+```{=tex}
+\begin{align}
+E_j = E_i = \mathrm{constant} = E_\mathrm{k}(i) + E_\mathrm{p}(i) = E_\mathrm{k}(j) + E_\mathrm{p}(j),
+(\#eq:conservation-of-mechanical-energy)
+\end{align}
+
+```
+
+milles
+
+*i*
+: varasem ajahetk
+
+*j*
+: hilisem ajahetk

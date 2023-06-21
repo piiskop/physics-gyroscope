@@ -1,0 +1,116 @@
+# Vastused küsimustele
+
+## Pearsoni korrelatsiooni kordaja
+
+### Küsimus
+
+Miks ei saa Pearsoni korrelatsiooni kordajat graafiku $\omega_\text{P} = \text{f}(\omega)$ (joonis \@ref(fig:angular-speed) leheküljel `r render_pageref(reference = "fig:angular-speed")`) põhjal seose \@ref(eq:angular-velocity-of-precession-by-angular-moment) leheküljel `r render_pageref(reference = "eq:angular-velocity-of-precession-by-angular-moment")` kohta
+arvutada?
+
+### Vastus
+
+Pearsoni korrelatsiooni kordaja näitab lineaarset tugevust kahe muutuja vahel. Kuna graafik pole lineaarne, siis ei saa selle põhjal Pearsoni korrelatsiooni kordajat nimetatud seose kohta arvutada.
+
+## Motoroller ja mootorratas
+
+### Küsimus
+
+Kumb on püsivam sõiduks maanteel, kas motoroller või mootorratas ja miks?
+
+### Vastus
+
+Maantel sõiduks on püsivam mootorratas, sest võimaldab arendada suuremat nurkkiirust, mis tingib suurema inertsimomendi ja seega ka maapinnaga paralleelse impulsimomendi, mis hoiab pöörlevat ratast vertikaalses asendis.
+
+## Vintrelvad
+
+### Küsimus
+
+Miks kasutatakse sõjanduses vintrelvi?
+
+### Vastus
+
+Sõjanduses kasutatakse vintrelvi, sest pöörlev väljalendav ese püsib kindlamalt trajektooril kui mittepöörlev väljalendav ese. See on selgitatav asjaoluga, et toru sees liikuma pandav ese enne väljalendu põrkub toru seinte vastu ja väljumiskohas ei pruugi selle liikumissiht olla paralleelne toruga, vintrelvas aga liigub ese toru sees mööda vinti ja torust eemaldades jätkab sellist liikumist ning massikese liigub samas sihis toruga.
+
+## Autorattad
+
+### Küsimus
+
+Kuidas mõjutab pöörlevaid autorattaid tee kaldumine kurvi suunas?
+
+### Vastus
+
+Kurvi sisenedes, kui juht pöörab esirattaid, hakkab rataste impulsimoment jahtima allapoole suunatud jõumomenti ja püüab rattaid kallutada kurvi väliskülje suunas. Kui tee on kurvis piisavalt tõstetud kurvi väliskülje suunas, siis hakkab kurvis ratastele vastu mõjuma jõud, mis suunab jõumomendi ülespoole tasakaalustades allapoole suunatud jõumomenti ja hoides rattad vertikaalsed.
+
+## Güroseadmed
+
+### Küsimus
+
+Millisel güroskoobi omadusel põhinevad güroseadmed? Tooge näiteid.
+
+### Vastus
+
+Güroseadmed põhinevad güroskoobi omadusel säilitada pöörlemissuund. Nt laev loksub ja selle kiil võib nii kergesti suunda muuta. Kui kiil on seotud güroskoopse juhtimisega, siis suudab laev püsida kursil. Teine güroskoobi omadus, mida praktikas rakendatakse, on selle hooratta impulsimomendi järgnemine välisele jõumomendile. Nii saab keerata masinaid. Helikopterile pannakse kas kaks horisontaalset propellerit, mis pöörlevad üksteise suhtes vastassuunas, või kaks eri telgedele paigaldatud propellerit, et helikopter ei hakkaks ise pöörlema.
+
+## Nutitelefoni võimalik lend
+
+### Küsimus
+
+Kui kõrgele võib tõsta meie poolt kasutatud güroskoobi pöörlemisenergia arvel oma
+nutitelefon? Aga kui kõrgele sind ennast või su sõpra?
+
+\onecolumn
+
+### Vastus
+
+Lasen lisada tabelisse tulbad nutitelefoni ja enda keha lennutamise kohta pöörlemisenergia arvelt. Viimased kaks tulpa on tabelis \@ref(tab:heights-of-others) leheküljel `r render_pageref(reference = "tab:heights-of-others")` nende päralt.
+
+```{r label = "heights-of-others"}
+h_smartphone <- calculate_height(
+  I = mean_of_I,
+  omega = data_frame_of_precession_with_height_without_outliers$`$\\frac{\\omega}{\\unit{\\per\\s}}$`,
+  m = m_nutikas
+)
+
+h_my_body <- calculate_height(
+  I = mean_of_I,
+  omega = data_frame_of_precession_with_height_without_outliers$`$\\frac{\\omega}{\\unit{\\per\\s}}$`,
+  m = 78.4
+)
+
+data_frame_of_precession_with_height_of_smartphone_without_outliers <- cbind(
+  data_frame_of_precession_with_height_without_outliers,
+  h_smartphone
+)
+
+data_frame_of_precession_with_height_of_my_body_without_outliers <- cbind(
+  data_frame_of_precession_with_height_of_smartphone_without_outliers,
+  h_my_body
+)
+
+colnames(data_frame_of_precession_with_height_of_my_body_without_outliers) <- c(
+  "$\\frac{N}{\\unit{\\per\\s}}$",
+  "$\\frac{\\omega}{\\unit{\\per\\s}}$",
+  "$\\frac{\\Delta(N)}{\\unit{\\per\\s}}$",
+  "$\\frac{\\Delta(\\omega)}{\\unit{\\per\\s}}$",
+  "$\\frac{\\Delta(\\alpha)}{\\unit{\\degree}}$",
+  "$\\Delta(\\alpha)$",
+  "$\\frac{\\Delta(t)}{\\unit{\\s}}$",
+  "$\\frac{\\omega_\\text{P}}{\\unit{\\per\\s}}$",
+  "$\\frac{\\frac{1}{\\omega}}{\\unit{\\s}}$",
+  "$\\frac{I}{\\unit{\\kg\\m\\squared}}$",
+  paste("\\num{", as.character(m_throwable), "}-\\unit{\\kg} objekt"),
+  "Nutitelefon",
+  "Mu keha"
+)
+
+print_table(
+  table = data_frame_of_precession_with_height_of_my_body_without_outliers,
+  caption = "Pretsessiooni andmed kõrgusega, kui kõrgele saaks güroskoobi energiaga heita eri massiga objekte.",
+  digits = 3,
+  additional_header = c(" " = 10, "$\\\\frac{h}{\\\\unit{\\\\m}}$" = 3)
+) %>%
+  landscape()
+
+```
+
+\twocolumn

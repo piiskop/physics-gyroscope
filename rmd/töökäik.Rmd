@@ -33,14 +33,14 @@
 
 12. Tutvusin pöörleva güroskoobi omadustega. Birgit Avistu lõi joonlauaga nõrgalt vastu güroskoobi teljesihilist varba (joonis \@ref(fig:hitting-gyroscope) leheküljel `r render_pageref(reference = "fig:hitting-gyroscope")`). Güroskoob oma asendit ei muutnud.
 
-    ```{r label = "hitting-gyroscope", fig.cap = "Birgit toksas joonlauaga güroskoobi teljesihilist varba. Taamal on juhendaja."}
+    ```{r label = "hitting-gyroscope", echo = FALSE, fig.cap = "Birgit toksas joonlauaga güroskoobi teljesihilist varba. Taamal on juhendaja."}
     include_external_graphics(path = "rmd/birgit-toksamas-güroskoopi.jpg")
     
     ```
     
-13. Vajutasin güroskoobi teljesihilisele varbale ülalt alla, mille tõttu rootor liikus vajutamiskoha poolt vaadatuna paremale. Vajutasin güroskoobi teljesihilisele varbale alt üles, mille tõttu rootor liikus vajutamiskoha poolt vaadatuna vasemale. Vajutasin güroskoobi teljesihilisele varbale selle vaba osa poolt vaadatuna paremalt vasakule, mille tõttu rootor liikus allapoole. Vajutasin güroskoobi teljesihilisele varbale selle vaba osa poolt vaadatuna vasakult paremale, mille tõttu rootor liikus ülespoole. Jõumoment, mis paneb güroskoobi rootori liikuma vasemale, paremale, üles või alla, on risti teljesihilise varba telje raadiuse ja rootorile mõjuva jõuga kruvi- ehk parema käe reegli järgi. Raadius on suunatud väljastpoolt sissepoole, sest see on kesktõmbejõud, mida rakendatakse, et rootor küljest ära ei lendaks. Kui vajutada teljesihilisele varbale ülalt alla, siis see tähendab, et tõstetakse rootorit, mistõttu jõud, millega rootorit liigutatakse, mõjub alt üles. Kui kasutada pöialt raadiusevektorina ja pikka peetrit rootorit tõstva jõu vektorina, on kahe eelnimetatud sõrmega risti olev nimetissõrm suunatud jõumomendi vektoriks ja seetõttu liigubki rootor just sellesse suunda. Eksperiment kinnitas seega güroskoobi teooriat.
+13. Vajutasin güroskoobi teljesihilisele varbale ülalt alla, mille tõttu rootor liikus vajutamiskoha poolt vaadatuna paremale. Vajutasin güroskoobi teljesihilisele varbale alt üles, mille tõttu rootor liikus vajutamiskoha poolt vaadatuna vasemale. Vajutasin güroskoobi teljesihilisele varbale selle vaba osa poolt vaadatuna paremalt vasakule, mille tõttu rootor liikus allapoole. Vajutasin güroskoobi teljesihilisele varbale selle vaba osa poolt vaadatuna vasakult paremale, mille tõttu rootor liikus ülespoole. Jõumoment, mis paneb güroskoobi rootori liikuma vasemale, paremale, üles või alla, on risti teljesihilise varba telje raadiuse ja rootorile mõjuva jõuga kruvi- ehk parema käe reegli järgi. Raadius on suunatud väljastpoolt sissepoole, sest see on kesktõmbejõud, mida rakendatakse, et rootor küljest ära ei lendaks. Kui vajutada teljesihilisele varbale ülalt alla, siis see tähendab, et tõstetakse rootorit, mistõttu jõud, millega rootorit liigutatakse, mõjub alt üles. Kui kasutada nimetissõrme raadiusevektorina suunaga teljest eemale, ja pikka peetrit rootorit tõstva jõu vektorina, on kahe eelnimetatud sõrmega risti olev nimetissõrm suunatud jõumomendi vektoriks, mistõttu liigubki rootor just sellesse suunda. Eksperiment kinnitas seega güroskoobi teooriat.
 
-14. Nihutasin tasakaalustava raskuse algasukohast $x_0$ varva välisosa lähedale. Fikseerisin selle asendi.
+14. Nihutasin tasakaalustava raskuse algasukohast $\overrightarrow{r_\text{balancer; initial}}$ varva välisosa lähedale. Fikseerisin selle asendi.
     
     ```{r label = "x_1"}
     x_1 <- 13.6e-2
@@ -78,7 +78,7 @@
     
     Tasakaalustaja mass on \qty{`r as.character(m_balancer)`}{\kg}.
     
-18. Lasen arvutada tabelis \@ref(tab:precession) leheküljel `r render_pageref(reference = "tab:precession")` nurkkiiruse, selle muudu (\@ref(eq:angular-velocity) leheküljel `r render_pageref(reference = "eq:angular-velocity")`), pretsessiooninurga muutuse ja pretsessiooninurga[@ling_2018_university(lk 552)] read.
+18. Lasen arvutada tabelis \@ref(tab:precession) leheküljel `r render_pageref(reference = "tab:precession")` nurkkiiruse, selle muudu (valem \@ref(eq:angular-velocity) leheküljel `r render_pageref(reference = "eq:angular-velocity")`), pretsessiooninurga muutuse ja pretsessiooninurga[@ling_2018_university(lk 552)] tulbad.
 
 ```{r label = "precession"}
 N_per_min <- c(8900, 7900, 7000, 6000, 5000, 4000, 3000)

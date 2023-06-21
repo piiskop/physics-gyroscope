@@ -117,9 +117,9 @@ print_table <- function(table, caption, digits = 2, additional_header = NULL, fo
       table,
       bootstrap_options = c("striped", "bordered", "condensed", "responsive", "hover"),
       latex_options = c("striped", "repeat_header"),
-      repeat_header_text = paste(caption, "$\\textit{(Continued...)}$"),
+      repeat_header_text = paste(caption, "$\\textit{(Jätkub...)}$"),
       repeat_header_method = "replace",
-      repeat_header_continued = TRUE # "Tabel järgneb järgmisel leheküljel..."
+      repeat_header_continued = "Tabel järgneb järgmisel leheküljel..."
     ))
     
     if (!is.null(footnotes)) {
@@ -229,10 +229,20 @@ render_color <- function(color, text) {
 
 ```
 
-# Eesmärgid
+# Sissejuhatus {-}
 
-1. Güroskoopiline efekt, selle esinemine ja rakendamisevõimalused tehnikas tundma õpitud.
+Käesolevat raportit asusin koostama 2023. aasta juuni 15. päevas ja valmis sain 21. päevas. Kuna güroskoobi puhul on tegemist kompleksse pendliga, kestis sellest arusaamine olulise ajavahemiku. Mitmel korral, kui tundus, et laekunud on täielik arusaam, oli ikka miski puudu, mis tingis veel juurde, aga samuti üle lugemist, kuulamist ja vaatamist.
 
-2. Güroskoobi elementaarteooria paikapidavus katseliselt uuritud.
+Jäin kinni pretsessiooni nurkkiiruse valemi koostamisega propelleri pöörlemiskiiruse järgi. Kirjutasin virtuaalsele tahvlile valemi tuletuskäiku, tegin jooniseid. Ei mäletanud, kas güroskoobi tasakaalust väljaviimine põhjustas ka horisontaalse telje vertikaalse kalde propelleri pöörlemise ajaks. Liikusin esialgu liiga kiiresti üle teema, mistõttu tundus mulle arusaamatu, kuidas tasakaalustaja esialgse ja viimase asukoha erinevust tulebki valemis arvestada ja mitte seda teisendada horisontaalseks komponendiks. Pärast mitmepäevast õppimist ja valemi tuletamist nägin, et see tõepoolest nii on. Mõtlesin ka, kas ja kuidas saaks tõusunurka kasutada, kuid hiljem selgus, et polegi vaja.
 
-3. Pöörleva keha energia hindamine õpitud.
+Jõumomendi valemi tuletamises inertsimomendi järgi selgus, et olin unustanud, kuidas teisendada vektorite ristkorrutist skalaarkorrutiseks. Kui seda käsitsi läbi tegin, kirjutasin sisse mitu korda vigu ja vahel ei avastanud neid ka kogu tuletuskäigu kontrollimises. Lõpuks selgus, et olin jätnud ühe negatsioonimärgi arvestamata, mille korrigeerimisel jõudsin ka soovitud tulemuseni.
+
+Jooniseid valmistasin esialgu ühe liiga palju, sest hilisemal mõistmisel selgus, et üks joonis kujutas pretsessiooni valesti.
+
+Et mõista, kuidas käitub güroskoop, kui seda mõjutada mingis suunas, vaatasin läbi teemakohased tervikvideod. Võti oli kasutada nimetissõrme ja suunata too keskpunktist mööda raadiust väljapoole.
+
+Arendasin vestlust \@TheAnimammaliga, kes väidab, et impulsimoment ei olevat jääv mujal kui ainult ettekujutuses[@wheel]. Raporti valmimise hetkeks ma temalt selgust ei saanud, miks nii. Ise arvasin, et põhjus olevat horisontaalses komponendis.
+
+Tehnilisi tõrkeid oli ka, mis olid põhjustatud minu puudulikust oskus-teabest. Need puudutasid trendijoone tegemist ja rõhtsat kujutamist, samuti tulpade liitmist olemasolevale tabelile ja kõrvalekaldujate eemaldamist.
+
+Nüüd, kui raport on valmis, tunnen, et oskan güroskoopiat ka õpetada. Niivõrd oluline on ka kõik praktikumi eksperimendid sooritada ja raporteerida enne eksamit.

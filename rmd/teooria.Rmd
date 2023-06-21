@@ -72,4 +72,40 @@ I = \frac{((\overrightarrow{r_\text{balancer; final}} - \overrightarrow{r_\text{
 (\#eq:moment-of-inertia-by-angular-velocity-of-precession)
 \end{align}
 
+Eri sagedusega pööreldes on hooratta pöörlemisenergia erinev. Kui saaks kogu selle energia mingi konkreetse pöörlemissageduse puhul kasutada sihitise üleslennutamiseks, siis on võimalik välja arvutada, kui kõrgele see sihitis lendaks. Siinkohal lihtsuse mõttes ei arvesta võimalikke vastujõude. Oletan, et pöörlemisenergia on üleslennutamise algenergia ja samaaegselt on lennutatava eseme potentsiaalne energia null. Mehaanilise energia jäävuse seadusest (seos \@ref(eq:conservation-of-mechanical-energy) leheküljel `r render_pageref(reference = "eq:conservation-of-mechanical-energy")`) tuleneb asjaolu, et suletud süsteemis potentsiaalse ja kineetilise energia summa algpositsioonis on sama mis lõpppositsioonis. Käsitlen kineetilise energiana hooratta pöörlemisenergiat ja seetõttu asendan jäävuse seoses kineetilise energia hooratta pöörlemisenergiaga seosest \@ref(eq:rotational-kinetic-energy) leheküljel `r render_pageref(reference = "eq:rotational-kinetic-energy")`. Asendan jäävuse seoses potentsiaalse energia valemist \@ref(eq:potential-energy) leheküljel `r render_pageref(reference = "eq:potential-energy")` ning asendan viimatimainitud valemisse jõu lineaarse jõu valemist \@ref(eq:force) leheküljel `r render_pageref(reference = "eq:force")`. Arvestan ka, et kiirendus on raskuskiirendus ja nihe on vertikaalses suunas ning tulemuseks on seos
+\@ref(eq:height) leheküljel `r render_pageref(reference = "eq:height")`.
+
+\begin{align}
+\frac{I \times \omega^2}{2} + 0 &= 0 + \int{\vec{F}} \times \mathrm{d}(s);\\
+\frac{I \times \omega^2}{2} &= \int{\vec{m \times \vec{a}}} \times \mathrm{d}(h);\\
+\frac{I \times \omega^2}{2} &= \int{\vec{m \times \vec{g}}} \times \mathrm{d}(h);\\
+\frac{I \times \omega^2}{2} &= m \times \int{\vec{g}} \times \mathrm{d}(h);\\
+\frac{I \times \omega^2}{2 \times m} &= \int{\vec{g}} \times \mathrm{d}(h);\\
+\frac{I \times \omega^2}{2 \times m} &= \vec{g} \times h;\\
+\frac{I \times \omega^2}{2 \times m \times \vec{g}} &= h.
+(\#eq:height)
+\end{align}
+milles
+
+$h$
+: kõrgus
+
+```{r label = "calculate_height"}
+#' This function calculates how high is it potentially possible to fly an object using the given properties of a rotating object.
+#' 
+#' @param I the moment of inertia of the rotating object
+#' @param omega the angular speed of the rotating object
+#' @param m the mass of the object to fly
+#' @param acceleration_due_gravitation the acceleration caused by the gravity
+#' 
+#' @returns the height
+calculate_height <- function(I, omega, m, acceleration_due_gravitation = g) {
+
+  h = I * omega^2 / (2 * m * acceleration_due_gravitation)
+  
+  return(h)
+}
+
+```
+
 \twocolumn
